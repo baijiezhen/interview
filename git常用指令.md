@@ -36,5 +36,8 @@ git merge  [选择要合并的分支]
 ### GIT切换分支
 git checkout [要切换的分支]
 
-### GIT创建分支
+### GIT创建新分支
 git branch dev
+
+### 提交dev分支到远程服务器
+git push --set-upstream origin dev
