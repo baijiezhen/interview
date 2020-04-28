@@ -31,3 +31,10 @@ git reset --hard   [版本号]
 git push origin HEAD --force (强行更新远程分支)
 
 ### GIT合并分支
+git merge  [选择要合并的分支]
+
+### GIT切换分支
+git checkout [要切换的分支]
+
+### GIT创建分支
+git branch dev
