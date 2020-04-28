@@ -29,3 +29,5 @@ git merge --abort
 ### GIT版本回退
 git reset --hard   [版本号]
 git push origin HEAD --force (强行更新远程分支)
+
+### GIT合并分支
