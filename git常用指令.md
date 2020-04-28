@@ -24,3 +24,8 @@ git push -f
 git merge --abort
 
 ### GIT 有时候获取不到最新分支需要重新 执行 git fetch 指令重新拉去分支代码
+
+
+### GIT版本回退
+git reset --hard   [版本号]
+git push origin HEAD --force (强行更新远程分支)
