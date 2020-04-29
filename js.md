@@ -7,6 +7,24 @@ function Person() {
     return say()
 }
 Person() // hello
+<ul class="list">
+      <li class="bloc">1</li>
+      <li class="bloc">2</li>
+      <li class="bloc">3</li>
+      <li class="bloc">4</li>
+      <li class="bloc">5</li>
+ </ul>
+  var ali = document.querySelectorAll('.wrap ul li')
+  for(var i = 0,l = ali.length;i < l;i++){
+ 　　ali[i].onclick = function(){
+        console.log(i)　　//5 5 5 5 5
+    }
+  }
+    for(var i = 0,l = ali.length;i < l;i++){
+ 　　ali[i].onclick = function(j){
+       return j　　//5 5 5 5 5
+    }(i)
+  }
 由于js的特殊作用域函数外部无法直接读取函数内部的变量，内部可以直接读取函数外部的变量，从而产生了闭包的概念！
 闭包优点：
 可以读取到一个函数的内部的局部变量
