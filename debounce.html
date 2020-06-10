@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="content" style="height:150px;background-color:#ccc;"></div>
+    <script>
+        console.log('1111111');
+        /**
+         * 函数防抖概念：函数防抖（debounce）是指在一定时间内，在动作被连续频繁触发的情况下，动作只会被执行一次，也就是说当调用动作过n毫秒后，才会执行该动作，若在这n毫秒内又调用此动作则将重新计算执行时间，所以短时间内的连续动作永远只会触发一次，比如说用手指一直按住一个弹簧，它将不会弹起直到你松手为止。
+         * 总结一句话就是说，指定单位时间内频繁触发，只响应最后一次，如果在时间内再次触发，则清空计时器重新计算
+         * 最后，通过参数来控制，究竟是立即执行，还是非立即执行
+         */
+
+        function debounce(func, time, isFirst) {
+            let timeId = null;
+            return function () {
+                var that = this;
+                var args = arguments;
+                console.log(timeId);
+                timeId ? clearTimeout(timeId) : timeId
+                // 只有第一次点击的时候timeId 为null 之后，全部为!timeId为 false
+                if (isFirst) {
+                    if (!timeId) {
+                        func.apply(that, args)
+                    }
+                    timeId = setTimeout(() => {
+                        func.apply(that, args)
+                    }, time);
+                } else {
+                    timeId = setTimeout(() => {
+                        func.apply(that, args)
+                        timeId = null;
+                    }, time);
+                }
+
+
+            }
+
+        }
+
+        function handle() {
+            console.log('111');
+
+            console.log('函数防抖，非立即执行函数');
+        }
+        let contentId = document.getElementById('content');
+        contentId.addEventListener('click',
+            debounce(handle, 2000, false))
+    </script>
+</body>
+
+</html>
